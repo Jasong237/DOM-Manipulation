@@ -1,0 +1,30 @@
+html, body, * {
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* will not make a box increase w padding */
+    /* dont change this */    
+} 
+
+.bgc{
+    background-image:linear-gradient(blue,purple);
+}
+
+.header{
+    text-align:center;
+    font-size:100px;
+}
+.header2{
+    text-align:center;
+    font-size:90px;
+}
+
+.btn{
+    text-align:center;
+    font-size:90px;
+}
+
+.form{
+    text-align:center;
+    
+}
