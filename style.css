@@ -10,13 +10,46 @@ html, body, * {
     background-image:linear-gradient(blue,purple);
 }
 
-.header{
+.title{
     text-align:center;
     font-size:100px;
 }
-.header2{
-    text-align:center;
-    font-size:90px;
+
+.container{
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card{
+    width: 500px;
+    height: 500px;
+    border-color:black;
+    border: 20px solid black;
+    display: flex;
+    margin: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-header{
+    font-size: 100px;
+    text-align: center;
+}
+
+.card-img{
+    width:50%;
+    height: auto;
+
+}
+
+.card-author{
+    font-size: 100px;
+    text-align: center;
 }
 
 .btn{
