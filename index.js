@@ -10,9 +10,7 @@ const DOMSelectors = {
 
 DOMSelectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
-  document.querySelector("input").value;
-  const answer = event.inputElement.value;
-  console.log(answer);
+  console.log(document.querySelector("input").value);
 });
 
 /* DOMSelectors.button.addEventListener("click", function (event) {
