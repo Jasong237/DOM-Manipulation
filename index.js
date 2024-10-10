@@ -1,8 +1,4 @@
 const DOMSelectors = {
-  header: document.querySelector("h1"),
-  cardHeader: document.querySelector(".card-header"),
-  cardImg: document.querySelector(".card-img"),
-  cardAuthor: document.querySelector(".card-author"),
   button: document.querySelector(".btn"),
   form: document.querySelector("form"),
   container: document.querySelector(".container"),
@@ -10,7 +6,22 @@ const DOMSelectors = {
 
 DOMSelectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
-  console.log(document.querySelector("input").value);
+  console.log(document.querySelector(".artist").value);
+  console.log(document.querySelector(".album").value);
+  console.log(document.querySelector(".link").value);
+
+  let button = {
+    artist: document.querySelector(".artist").value,
+    album: document.querySelector(".album").value,
+    image: document.querySelector(".link").value,
+  };
+
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card"> <h2 class="card-artist">${button.artist} </h2>
+    <h2 class="card-album">${button.album}</h2></div>
+    <h2 class="card-link">${button.link}</h2></div>`
+  );
 });
 
 /* DOMSelectors.button.addEventListener("click", function (event) {
@@ -32,15 +43,6 @@ newButtons.forEach((button) =>
   })
 );
  */
-
-let button = {
-  artist: "t",
-  releast: 1977,
-};
-DOMSelectors.container.insertAdjacentHTML(
-  "beforeend",
-  `<div class="card"> <h2 class="card-header">${button.artist} Text </h2></div>`
-);
 
 //create the html for inputs, cards, and container
 //select/query the HTML form and get values from inputs
