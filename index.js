@@ -10,17 +10,19 @@ DOMSelectors.form.addEventListener("submit", function (event) {
   console.log(document.querySelector(".album").value);
   console.log(document.querySelector(".link").value);
 
-  let button = {
+  const button = {
     artist: document.querySelector(".artist").value,
     album: document.querySelector(".album").value,
-    image: document.querySelector(".link").value,
+    link: document.querySelector(".link").value,
   };
 
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
-    `<div class="card"> <h2 class="card-artist">${button.artist} </h2>
-    <h2 class="card-album">${button.album}</h2></div>
-    <h2 class="card-link">${button.link}</h2></div>`
+    `<div class="card"> 
+    <h2 class="card-artist">     ${button.artist} </h2>
+    <img class="card-album" src="${button.link}" alt="Album Cover" />
+    <h2 class="card-album">      ${button.album}</h2>
+    </div>`
   );
 });
 
