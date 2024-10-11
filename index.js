@@ -1,38 +1,40 @@
 const DOMSelectors = {
-  button: document.querySelector(".btn"),
+  button: document.querySelector("button"),
   form: document.querySelector("form"),
   container: document.querySelector(".container"),
+  card: document.querySelector(".card"),
 };
 
 DOMSelectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
   console.log(document.querySelector(".artist").value);
   console.log(document.querySelector(".album").value);
-  console.log(document.querySelector(".link").value);
+  console.log(document.querySelector(".img").value);
 
   const button = {
     artist: document.querySelector(".artist").value,
+    img: document.querySelector(".img").value,
     album: document.querySelector(".album").value,
-    link: document.querySelector(".link").value,
   };
 
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
     `<div class="card"> 
     <h2 class="card-artist">     ${button.artist} </h2>
-    <img class="card-album" src="${button.link}" alt="Album Cover" />
+    <img class="card-img" src=  "${button.img}" alt="Album Cover" />
     <h2 class="card-album">      ${button.album}</h2>
     </div>`
   );
 });
 
-/* DOMSelectors.button.addEventListener("click", function (event) {
-  console.log(event.target.parentElement);
-  event.target.style.backgroundColor = "red";
-}); */
+DOMSelectors.container.addEventListener("click", function (event) {
+  const element = event.target.closest(".card");
+  element.remove();
+  console.log("removed!");
+});
 
 //select all buttons as nodelist (can use for each)
-const buttons = document.querySelectorAll("button");
+// const buttons = document.querySelectorAll("button");
 // make array from buttons if i wanna use filter
 /* const newButtons = Array.from(buttons);
 console.log(newButtons);
