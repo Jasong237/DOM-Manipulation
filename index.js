@@ -3,35 +3,49 @@ const DOMSelectors = {
   form: document.querySelector("form"),
   container: document.querySelector(".container"),
   card: document.querySelector(".card"),
+  artist: document.querySelector(".artist"),
+  image: document.querySelector(".img"),
+  album: document.querySelector(".album"),
 };
 
-DOMSelectors.form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  console.log(document.querySelector(".artist").value);
-  console.log(document.querySelector(".album").value);
-  console.log(document.querySelector(".img").value);
+DOMSelectors.form.addEventListener("submit", submit);
 
-  const button = {
-    artist: document.querySelector(".artist").value,
-    img: document.querySelector(".img").value,
-    album: document.querySelector(".album").value,
+function getButtonValues() {
+  return {
+    artist: DOMSelectors.artist.value,
+    img: DOMSelectors.image.value,
+    album: DOMSelectors.album.value,
   };
+}
 
+function submit(event) {
+  event.preventDefault();
+
+  const button = getButtonValues();
+
+  addCard(button);
+}
+
+function addCard(button) {
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
     `<div class="card"> 
-    <h2 class="card-artist">     ${button.artist} </h2>
-    <img class="card-img" src=  "${button.img}" alt="Album Cover" />
-    <h2 class="card-album">      ${button.album}</h2>
+      <h2 class="card-artist"> ${button.artist} </h2>
+      <img class="card-img" src="${button.img}" alt="Album Cover" />
+      <h2 class="card-album"> ${button.album}</h2>
     </div>`
   );
-});
+}
 
-DOMSelectors.container.addEventListener("click", function (event) {
+DOMSelectors.container.addEventListener("click", removeCard);
+
+function removeCard(event) {
   const element = event.target.closest(".card");
-  element.remove();
-  console.log("removed!");
-});
+  if (element) {
+    element.remove();
+    console.log("removed!");
+  }
+}
 
 //select all buttons as nodelist (can use for each)
 // const buttons = document.querySelectorAll("button");
