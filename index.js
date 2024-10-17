@@ -1,8 +1,6 @@
 const DOMSelectors = {
-  button: document.querySelector("button"),
   form: document.querySelector("form"),
   container: document.querySelector(".container"),
-  card: document.querySelector(".card"),
   artist: document.querySelector(".artist"),
   image: document.querySelector(".img"),
   album: document.querySelector(".album"),
@@ -21,20 +19,28 @@ function getButtonValues() {
 function submit(event) {
   event.preventDefault();
 
-  const button = getButtonValues();
+  const value = getButtonValues();
 
-  addCard(button);
+  addCard(value);
 }
 
-function addCard(button) {
+function addCard(value) {
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
     `<div class="card"> 
-      <h2 class="card-artist"> ${button.artist} </h2>
-      <img class="card-img" src="${button.img}" alt="Album Cover" />
-      <h2 class="card-album"> ${button.album}</h2>
+      <h2 class="card-artist">   ${value.artist} </h2>
+      <img class="card-img" src="${value.img}" alt= "Album Cover" />
+      <h2 class="card-album">    ${value.album}  </h2>
     </div>`
   );
+
+  removeSubmission();
+}
+
+function removeSubmission() {
+  DOMSelectors.artist.value = "";
+  DOMSelectors.image.value = "";
+  DOMSelectors.album.value = "";
 }
 
 DOMSelectors.container.addEventListener("click", removeCard);
@@ -46,6 +52,12 @@ function removeCard(event) {
     console.log("removed!");
   }
 }
+
+//create the html for inputs, cards, and container
+//select/query the HTML form and get values from inputs
+//turn values into object (movie, game, user, etc)
+//insert card with object onto HTML
+//add event listener for remove button in JS
 
 //select all buttons as nodelist (can use for each)
 // const buttons = document.querySelectorAll("button");
@@ -61,9 +73,3 @@ newButtons.forEach((button) =>
   })
 );
  */
-
-//create the html for inputs, cards, and container
-//select/query the HTML form and get values from inputs
-//turn values into object (movie, game, user, etc)
-//insert card with object onto HTML
-//add event listener for remove button in JS
